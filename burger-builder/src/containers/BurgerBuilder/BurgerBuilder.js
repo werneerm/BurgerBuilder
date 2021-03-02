@@ -6,6 +6,7 @@ import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
 import axios from "../../axios-orders";
 import Spinner from "../../components/UI/Spinner/Spinner";
+import withErrorHandler from "../../hoc/WithErrorHandler/withErrorHandler";
 
 const INGREDIENT_PRICES = {
 	salad: 0.5,
@@ -14,7 +15,7 @@ const INGREDIENT_PRICES = {
 	bacon: 0.7,
 };
 
-export default class BurgerBuilder extends Component {
+class BurgerBuilder extends Component {
 	// constructor(props){
 	//     super(props)
 	//     this.state={}
@@ -159,3 +160,4 @@ export default class BurgerBuilder extends Component {
 		);
 	}
 }
+export default withErrorHandler(BurgerBuilder, axios);
